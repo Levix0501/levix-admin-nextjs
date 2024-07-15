@@ -1,3 +1,9 @@
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/9cbe2b468a224f78800da3fa9317ee4f)](https://app.codacy.com/gh/Levix0501/levix-admin-nextjs/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Levix0501_levix-admin-nextjs&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Levix0501_levix-admin-nextjs)
+[![MIT License](https://img.shields.io/badge/license-MIT-blue)](https://opensource.org/licenses/MIT)
+
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
