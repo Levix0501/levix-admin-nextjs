@@ -5,4 +5,5 @@ export type ThemeMode = Theme | 'system';
 export type Settings = {
   themeMode?: ThemeMode;
   systemTheme?: Theme;
+  primaryColor?: string;
 };

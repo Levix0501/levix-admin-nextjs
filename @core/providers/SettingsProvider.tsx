@@ -1,15 +1,16 @@
 'use client';
 import { ReactNode, createContext, useEffect, useState } from 'react';
 
-import { appConfig } from '@/configs/appConfig';
+import { appConfig } from '@config/appConfig';
 import { useCookieValue } from '../hooks/useCookieValue';
 import { useSystemTheme } from '../hooks/useSystemTheme';
-import { Settings } from '../types/settings';
+import { Settings, ThemeMode } from '../types/settings';
 import { isDarkTheme } from '../utils/theme';
 
 export type SettingsContextProps = {
   settings: Settings;
   updateSettings: (settings: Partial<Settings>) => void;
+  getSettings: () => Required<Settings>;
 };
 
 type SettingsProviderProps = {
@@ -54,8 +55,16 @@ export const SettingsProvider = ({
     }
   }, [settings.themeMode, systemTheme]);
 
+  const getSettings = (): Required<Settings> => ({
+    themeMode: settings.themeMode ?? appConfig.defaultThemeMode,
+    systemTheme: settings.systemTheme ?? appConfig.defaultSystemTheme,
+    primaryColor: settings.primaryColor ?? appConfig.primaryColor,
+  });
+
   return (
-    <SettingsContext.Provider value={{ settings: settings, updateSettings }}>
+    <SettingsContext.Provider
+      value={{ settings: settings, updateSettings, getSettings }}
+    >
       {children}
     </SettingsContext.Provider>
   );

@@ -17,6 +17,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [require('./@core/tailwind-plugin')],
 };
 export default config;

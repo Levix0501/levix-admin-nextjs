@@ -1,33 +1,14 @@
 'use client';
 
-import type { MenuProps } from 'antd';
 import { Dropdown } from 'antd';
-import { LaptopMinimal, Moon, Sun } from 'lucide-react';
-import { appConfig } from '@/configs/appConfig';
-import { useSettings } from '../hooks/useSettings';
-import { ThemeMode } from '../types/settings';
+import { Moon, Sun } from 'lucide-react';
+import { useSettings } from '../../hooks/useSettings';
+import { ThemeMode } from '../../types/settings';
+import { themeChangerItems } from './ThemeChanger';
 
 const ThemeDropdown = () => {
-  const { settings, updateSettings } = useSettings();
-  const themeMode = settings.themeMode ?? appConfig.defaultThemeMode;
-
-  const items: MenuProps['items'] = [
-    {
-      key: 'light',
-      label: 'Light',
-      icon: <Sun />,
-    },
-    {
-      key: 'dark',
-      label: 'Dark',
-      icon: <Moon />,
-    },
-    {
-      key: 'system',
-      label: 'System',
-      icon: <LaptopMinimal />,
-    },
-  ];
+  const { updateSettings, getSettings } = useSettings();
+  const themeMode = getSettings().themeMode;
 
   const onSelect = (key: string) => {
     updateSettings({ themeMode: key as ThemeMode });
@@ -36,7 +17,7 @@ const ThemeDropdown = () => {
   return (
     <Dropdown
       menu={{
-        items,
+        items: themeChangerItems,
         selectable: true,
         selectedKeys: [themeMode],
         onSelect: (e) => onSelect(e.key),

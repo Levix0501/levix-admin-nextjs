@@ -1,15 +1,16 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
-import { AntdProvider } from '@/@core/providers/AntdProvider';
-import { SettingsProvider } from '@/@core/providers/SettingsProvider';
+import { AntdProvider } from '@core/providers/AntdProvider';
+import { SettingsProvider } from '@core/providers/SettingsProvider';
 import {
   getSettingsFromCookie,
   getSystemThemeFromCookie,
   getThemeModeFromCookie,
-} from '@/@core/utils/settingsServerUtils';
-import { isDarkTheme } from '@/@core/utils/theme';
-import './globals.css';
+} from '@core/utils/settingsServerUtils';
+import { getTheme, isDarkTheme } from '@core/utils/theme';
+import '../styles/globals.scss';
+import { appConfig } from '@config/appConfig';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -29,8 +30,8 @@ export default function RootLayout({
   const darkCls = isDarkTheme(themeMode, systemTheme) ? 'dark' : '';
 
   return (
-    <html lang="en" className={`${darkCls}`}>
-      <body className={`${inter.className} levix`}>
+    <html lang="en" className={`${darkCls} ${appConfig.cssVarKey}`}>
+      <body className={`${inter.className}`}>
         <SettingsProvider serverSettingsCookie={settings}>
           <AntdProvider>{children}</AntdProvider>
         </SettingsProvider>

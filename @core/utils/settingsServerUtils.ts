@@ -1,7 +1,7 @@
 import 'server-only';
 
 import { cookies } from 'next/headers';
-import { appConfig } from '@/configs/appConfig';
+import { appConfig } from '@config/appConfig';
 import { Settings, Theme, ThemeMode } from '../types/settings';
 
 export const getSettingsFromCookie = () => {
