@@ -46,6 +46,7 @@ const ThemeChanger = () => {
             }
           )}
           onClick={() => updateSettings({ themeMode: item.key })}
+          onKeyDown={() => updateSettings({ themeMode: item.key })}
         >
           {item.icon}
         </div>
