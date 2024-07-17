@@ -1,14 +1,14 @@
 import ThemeChanger from '@core/components/theme-changer/ThemeChanger';
-import Logo from '@config/svg/Logo';
 import BrandColorPicker from '@core/components/BrandColorPicker';
+import { appConfig } from '@config/appConfig';
 
 export default function Home() {
   return (
-    <main className="h-screen flex justify-center">
+    <main className="h-screen flex justify-center pt-10">
       <div className="space-y-4">
         <div>
           <p>Logo</p>
-          <Logo width={48} height={48} />
+          {appConfig.logo}
         </div>
 
         <div>

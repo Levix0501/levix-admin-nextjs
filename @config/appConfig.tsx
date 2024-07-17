@@ -1,6 +1,9 @@
 import { Theme, ThemeMode } from '@core/types/settings';
+import { ReactNode } from 'react';
+import Logo from '@core/components/Logo';
 
 export type AppConfig = {
+  logo: ReactNode;
   settingsCookieName: string;
   defaultThemeMode: ThemeMode;
   defaultSystemTheme: Theme;
@@ -10,6 +13,7 @@ export type AppConfig = {
 };
 
 export const appConfig: AppConfig = {
+  logo: <Logo width={48} height={48} />,
   settingsCookieName: 'levix-next',
   defaultThemeMode: 'system',
   defaultSystemTheme: 'light',
